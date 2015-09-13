@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1CDE8C041B9AFB9E00376DB9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDE8C031B9AFB9E00376DB9 /* main.swift */; };
+		1CDBDBEF1BA5415300A403EB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDBDBEE1BA5415300A403EB /* main.swift */; };
+		1CDBDBF61BA5418B00A403EB /* ChocoBoiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDBDBF51BA5418B00A403EB /* ChocoBoiler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1CDE8BFE1B9AFB9E00376DB9 /* CopyFiles */ = {
+		1CDBDBE91BA5415300A403EB /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,12 +24,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1CDE8C001B9AFB9E00376DB9 /* HelloWorld */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HelloWorld; sourceTree = BUILT_PRODUCTS_DIR; };
-		1CDE8C031B9AFB9E00376DB9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		1CDBDBEB1BA5415300A403EB /* Choco-O-Holic */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Choco-O-Holic"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CDBDBEE1BA5415300A403EB /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		1CDBDBF51BA5418B00A403EB /* ChocoBoiler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChocoBoiler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1CDE8BFD1B9AFB9E00376DB9 /* Frameworks */ = {
+		1CDBDBE81BA5415300A403EB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,94 +40,96 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1CDE8BF71B9AFB9E00376DB9 = {
+		1CDBDBE21BA5415300A403EB = {
 			isa = PBXGroup;
 			children = (
-				1CDE8C021B9AFB9E00376DB9 /* HelloWorld */,
-				1CDE8C011B9AFB9E00376DB9 /* Products */,
+				1CDBDBED1BA5415300A403EB /* Choco-O-Holic */,
+				1CDBDBEC1BA5415300A403EB /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		1CDE8C011B9AFB9E00376DB9 /* Products */ = {
+		1CDBDBEC1BA5415300A403EB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1CDE8C001B9AFB9E00376DB9 /* HelloWorld */,
+				1CDBDBEB1BA5415300A403EB /* Choco-O-Holic */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1CDE8C021B9AFB9E00376DB9 /* HelloWorld */ = {
+		1CDBDBED1BA5415300A403EB /* Choco-O-Holic */ = {
 			isa = PBXGroup;
 			children = (
-				1CDE8C031B9AFB9E00376DB9 /* main.swift */,
+				1CDBDBEE1BA5415300A403EB /* main.swift */,
+				1CDBDBF51BA5418B00A403EB /* ChocoBoiler.swift */,
 			);
-			path = HelloWorld;
+			path = "Choco-O-Holic";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1CDE8BFF1B9AFB9E00376DB9 /* HelloWorld */ = {
+		1CDBDBEA1BA5415300A403EB /* Choco-O-Holic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1CDE8C071B9AFB9E00376DB9 /* Build configuration list for PBXNativeTarget "HelloWorld" */;
+			buildConfigurationList = 1CDBDBF21BA5415300A403EB /* Build configuration list for PBXNativeTarget "Choco-O-Holic" */;
 			buildPhases = (
-				1CDE8BFC1B9AFB9E00376DB9 /* Sources */,
-				1CDE8BFD1B9AFB9E00376DB9 /* Frameworks */,
-				1CDE8BFE1B9AFB9E00376DB9 /* CopyFiles */,
+				1CDBDBE71BA5415300A403EB /* Sources */,
+				1CDBDBE81BA5415300A403EB /* Frameworks */,
+				1CDBDBE91BA5415300A403EB /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = HelloWorld;
-			productName = HelloWorld;
-			productReference = 1CDE8C001B9AFB9E00376DB9 /* HelloWorld */;
+			name = "Choco-O-Holic";
+			productName = "Choco-O-Holic";
+			productReference = 1CDBDBEB1BA5415300A403EB /* Choco-O-Holic */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1CDE8BF81B9AFB9E00376DB9 /* Project object */ = {
+		1CDBDBE31BA5415300A403EB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = mfmf.me;
 				TargetAttributes = {
-					1CDE8BFF1B9AFB9E00376DB9 = {
+					1CDBDBEA1BA5415300A403EB = {
 						CreatedOnToolsVersion = 6.4;
 					};
 				};
 			};
-			buildConfigurationList = 1CDE8BFB1B9AFB9E00376DB9 /* Build configuration list for PBXProject "HelloWorld" */;
+			buildConfigurationList = 1CDBDBE61BA5415300A403EB /* Build configuration list for PBXProject "Choco-O-Holic" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 1CDE8BF71B9AFB9E00376DB9;
-			productRefGroup = 1CDE8C011B9AFB9E00376DB9 /* Products */;
+			mainGroup = 1CDBDBE21BA5415300A403EB;
+			productRefGroup = 1CDBDBEC1BA5415300A403EB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1CDE8BFF1B9AFB9E00376DB9 /* HelloWorld */,
+				1CDBDBEA1BA5415300A403EB /* Choco-O-Holic */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1CDE8BFC1B9AFB9E00376DB9 /* Sources */ = {
+		1CDBDBE71BA5415300A403EB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CDE8C041B9AFB9E00376DB9 /* main.swift in Sources */,
+				1CDBDBEF1BA5415300A403EB /* main.swift in Sources */,
+				1CDBDBF61BA5418B00A403EB /* ChocoBoiler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		1CDE8C051B9AFB9E00376DB9 /* Debug */ = {
+		1CDBDBF01BA5415300A403EB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -168,7 +172,7 @@
 			};
 			name = Debug;
 		};
-		1CDE8C061B9AFB9E00376DB9 /* Release */ = {
+		1CDBDBF11BA5415300A403EB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -203,14 +207,14 @@
 			};
 			name = Release;
 		};
-		1CDE8C081B9AFB9E00376DB9 /* Debug */ = {
+		1CDBDBF31BA5415300A403EB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		1CDE8C091B9AFB9E00376DB9 /* Release */ = {
+		1CDBDBF41BA5415300A403EB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -220,25 +224,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1CDE8BFB1B9AFB9E00376DB9 /* Build configuration list for PBXProject "HelloWorld" */ = {
+		1CDBDBE61BA5415300A403EB /* Build configuration list for PBXProject "Choco-O-Holic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1CDE8C051B9AFB9E00376DB9 /* Debug */,
-				1CDE8C061B9AFB9E00376DB9 /* Release */,
+				1CDBDBF01BA5415300A403EB /* Debug */,
+				1CDBDBF11BA5415300A403EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1CDE8C071B9AFB9E00376DB9 /* Build configuration list for PBXNativeTarget "HelloWorld" */ = {
+		1CDBDBF21BA5415300A403EB /* Build configuration list for PBXNativeTarget "Choco-O-Holic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1CDE8C081B9AFB9E00376DB9 /* Debug */,
-				1CDE8C091B9AFB9E00376DB9 /* Release */,
+				1CDBDBF31BA5415300A403EB /* Debug */,
+				1CDBDBF41BA5415300A403EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 1CDE8BF81B9AFB9E00376DB9 /* Project object */;
+	rootObject = 1CDBDBE31BA5415300A403EB /* Project object */;
 }
