@@ -27,7 +27,7 @@ class abstractClass {
 class concreteClass : abstractClass {
   
   override func method() {
-    println(super.member)
+    print(super.member)
   }
   
   init(member: String) {
