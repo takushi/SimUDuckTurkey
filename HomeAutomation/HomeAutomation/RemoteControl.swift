@@ -93,7 +93,6 @@ class RemoteControl {
     var stringBuff: String = String()
     stringBuff = "\n----- リモコン -----\n"
     for i in 0...self.onCommands.count - 1 {
-//      stringBuff += "[スロット" + String(i) + "]" + onCommands[i].getClass().getName() + " " + offCommands[i].getClass().getName() + "\n"
       stringBuff += "[スロット \(String(i))] \(onCommands[i].dynamicType) \(offCommands[i].dynamicType)\n"
     }
     

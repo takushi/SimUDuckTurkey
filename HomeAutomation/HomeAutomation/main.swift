@@ -1,6 +1,7 @@
 //
 //  main.swift
 //  HomeAutomation
+//  「Head First デザインパターン 6章 デザインパターン入門: Commandパターン：呼び出しのカプセル化」をSwiftで実装します。
 //
 //  Created by Homma Takushi on 2015/09/20.
 //  Copyright © 2015年 mfmf.me. All rights reserved.
