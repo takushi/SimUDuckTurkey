@@ -46,4 +46,3 @@ remote.onButtonWasPushed(2)
 remote.offButtonWathPushed(2)
 remote.onButtonWasPushed(3)
 remote.offButtonWathPushed(3)
-
