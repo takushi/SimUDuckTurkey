@@ -18,3 +18,10 @@ protocol Command {
   */
   func execute()
 }
+
+/// 初期のコマンド
+class NoCommand: Command {
+  func execute() {
+    print("コマンドが設定されていません")
+  }
+}

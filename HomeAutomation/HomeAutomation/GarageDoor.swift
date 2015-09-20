@@ -50,7 +50,7 @@ class GarageDoor {
 /// 車庫のドアを開けるコマンド
 class GarageDoorOpenCommand: Command {
  /// 車庫のドア
-  let garageDoor: GarageDoor
+  private let garageDoor: GarageDoor
   
   /**
   イニシャライザ

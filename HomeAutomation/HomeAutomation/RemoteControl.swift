@@ -10,7 +10,7 @@ import Foundation
 
 class SimpleRemoteControl {
   /// コマントを保持するスロット
-  var slot: Command!
+  private var slot: Command!
   
   /**
   イニシャライザ
@@ -34,5 +34,69 @@ class SimpleRemoteControl {
   */
   func buttonWasPressed() {
     self.slot.execute()
+  }
+}
+
+/// リモコン
+class RemoteControl {
+  /// on用のコマンド
+  private var onCommands: [Command]
+  /// off用のコマンド
+  private var offCommands: [Command]
+  
+  /**
+  イニシャライザ
+  
+  - returns: リモコン
+  */
+  init () {
+    let noCommand = NoCommand()
+    
+    self.onCommands = Array(count: 7, repeatedValue: noCommand)
+    self.offCommands = Array(count: 7, repeatedValue: noCommand)
+  }
+  
+  /**
+  コマンドを設定します
+  
+  - parameter slot:       スロットの番号
+  - parameter onCommand:  on用のコマンド
+  - parameter offCommand: off用のコマンド
+  */
+  func setCommand(slot: Int, onCommand: Command, offCommand: Command) {
+    self.onCommands[slot] = onCommand
+    self.offCommands[slot] = offCommand
+  }
+
+  /**
+  onボタンが押されたときに呼び出されます
+  
+  - parameter slot: 押されたスロットの番号
+  */
+  func onButtonWasPushed(slot: Int) {
+    self.onCommands[slot].execute()
+  }
+  
+  /**
+  offボタンが押されたときに呼び出されます
+  
+  - parameter slot: 押されたスロットの番号
+  */
+  func offButtonWathPushed(slot: Int) {
+    self.offCommands[slot].execute()
+  }
+  
+  /**
+  設定内容を確認します
+  */
+  func toString() -> String {
+    var stringBuff: String = String()
+    stringBuff = "\n----- リモコン -----\n"
+    for i in 0...self.onCommands.count - 1 {
+//      stringBuff += "[スロット" + String(i) + "]" + onCommands[i].getClass().getName() + " " + offCommands[i].getClass().getName() + "\n"
+      stringBuff += "[スロット \(String(i))] \(onCommands[i].dynamicType) \(offCommands[i].dynamicType)\n"
+    }
+    
+    return stringBuff
   }
 }
