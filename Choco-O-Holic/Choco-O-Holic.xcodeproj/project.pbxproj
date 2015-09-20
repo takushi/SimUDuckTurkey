@@ -91,6 +91,7 @@
 		1CDBDBE31BA5415300A403EB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = mfmf.me;
 				TargetAttributes = {
@@ -240,6 +241,7 @@
 				1CDBDBF41BA5415300A403EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
