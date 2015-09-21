@@ -14,6 +14,9 @@
 		1C30EFEB1BAEFF8400467553 /* CeilingFan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C30EFEA1BAEFF8400467553 /* CeilingFan.swift */; settings = {ASSET_TAGS = (); }; };
 		1C5CD9761BAEAF60003AD211 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CD9751BAEAF60003AD211 /* main.swift */; };
 		1C5CD97F1BAEAF9F003AD211 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CD97E1BAEAF9F003AD211 /* Command.swift */; settings = {ASSET_TAGS = (); }; };
+		1CD43F251BAFCFB800AC4C23 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD43F241BAFCFB800AC4C23 /* Macro.swift */; settings = {ASSET_TAGS = (); }; };
+		1CD43F271BAFD0D900AC4C23 /* TV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD43F261BAFD0D900AC4C23 /* TV.swift */; settings = {ASSET_TAGS = (); }; };
+		1CD43F291BAFD35100AC4C23 /* Hottub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD43F281BAFD35100AC4C23 /* Hottub.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +40,9 @@
 		1C5CD9721BAEAF60003AD211 /* HomeAutomation */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HomeAutomation; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C5CD9751BAEAF60003AD211 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1C5CD97E1BAEAF9F003AD211 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Command.swift; path = ../Command.swift; sourceTree = "<group>"; };
+		1CD43F241BAFCFB800AC4C23 /* Macro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
+		1CD43F261BAFD0D900AC4C23 /* TV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TV.swift; sourceTree = "<group>"; };
+		1CD43F281BAFD35100AC4C23 /* Hottub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hottub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,9 @@
 				1C117F111BAEC47600B2633B /* GarageDoor.swift */,
 				1C30EFE81BAEF6C700467553 /* Stereo.swift */,
 				1C30EFEA1BAEFF8400467553 /* CeilingFan.swift */,
+				1CD43F261BAFD0D900AC4C23 /* TV.swift */,
+				1CD43F281BAFD35100AC4C23 /* Hottub.swift */,
+				1CD43F241BAFCFB800AC4C23 /* Macro.swift */,
 			);
 			name = Vendor;
 			sourceTree = "<group>";
@@ -144,11 +153,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CD43F251BAFCFB800AC4C23 /* Macro.swift in Sources */,
 				1C0A984A1BAEBDAA00E7A136 /* Light.swift in Sources */,
+				1CD43F271BAFD0D900AC4C23 /* TV.swift in Sources */,
 				1C117F121BAEC47600B2633B /* GarageDoor.swift in Sources */,
 				1C30EFEB1BAEFF8400467553 /* CeilingFan.swift in Sources */,
 				1C5CD9761BAEAF60003AD211 /* main.swift in Sources */,
 				1C5CD97F1BAEAF9F003AD211 /* Command.swift in Sources */,
+				1CD43F291BAFD35100AC4C23 /* Hottub.swift in Sources */,
 				1C117F101BAEC00400B2633B /* RemoteControl.swift in Sources */,
 				1C30EFE91BAEF6C700467553 /* Stereo.swift in Sources */,
 			);

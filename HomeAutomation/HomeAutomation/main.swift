@@ -11,20 +11,31 @@ import Foundation
 
 let remote: RemoteControl = RemoteControl()
 
-let ceilingFan: CeilingFan = CeilingFan(location: "リビングルーム")
+let light: Light = Light(location: "リビングルーム")
+let tv: TV = TV(location: "リビングルーム")
+let stereo: Stereo = Stereo(location: "リビングルーム")
+let hottub: Hottub = Hottub()
 
-let ceilingFanMedium: CeilingFanMediumCommand = CeilingFanMediumCommand(ceilingFun: ceilingFan)
-let ceilingFanHigh: CeilingFanHighCommand = CeilingFanHighCommand(ceilingFun: ceilingFan)
-let ceilingFanOff: CeilingFanOffCommand = CeilingFanOffCommand(ceilingFun: ceilingFan)
+let lightOn: LightOnCommand = LightOnCommand(light: light)
+let stereoOn: StereoOnWithCDCommand = StereoOnWithCDCommand(stereo: stereo)
+let tvOn: TVOnCommandWithDVD = TVOnCommandWithDVD(tv: tv)
+let hottubOn: HottubOnCommandWithJets = HottubOnCommandWithJets(hottub: hottub)
+let lightOff: LightOffCommand = LightOffCommand(light: light)
+let stereoOff: StereoOffWithCDCommand = StereoOffWithCDCommand(stereo: stereo)
+let tvOff: TVOffCommandWithDVD = TVOffCommandWithDVD(tv: tv)
+let hottubOff: HottubOffCommand = HottubOffCommand(hottub: hottub)
 
-remote.setCommand(0, onCommand: ceilingFanMedium, offCommand: ceilingFanOff)
-remote.setCommand(1, onCommand: ceilingFanHigh, offCommand: ceilingFanOff)
+let partyOn: [Command] = [lightOn, stereoOn, tvOn, hottubOn]
+let partyOff: [Command] = [lightOff, stereoOff, tvOff, hottubOff]
 
+let partyOnMacro: MacroCommand = MacroCommand(commands: partyOn)
+let partyOffMacro: MacroCommand = MacroCommand(commands: partyOff)
+
+remote.setCommand(0, onCommand: partyOnMacro, offCommand: partyOffMacro)
+
+print(remote.toString())
+tv.setInputChannel(Channel.DVD)
+print("----- マクロのOnを押す -----")
 remote.onButtonWasPushed(0)
+print("----- マクロのOffを押す -----")
 remote.offButtonWathPushed(0)
-print(remote.toString())
-remote.undoButtonWasPushed()
-
-remote.onButtonWasPushed(1)
-print(remote.toString())
-remote.undoButtonWasPushed()
