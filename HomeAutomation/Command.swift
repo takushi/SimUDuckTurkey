@@ -17,11 +17,20 @@ protocol Command {
   コマンドを実行します
   */
   func execute()
+  
+  /**
+  最後のコマンドを取り消します
+  */
+  func undo()
 }
 
 /// 初期のコマンド
 class NoCommand: Command {
   func execute() {
+    print("コマンドが設定されていません")
+  }
+
+  func undo() {
     print("コマンドが設定されていません")
   }
 }

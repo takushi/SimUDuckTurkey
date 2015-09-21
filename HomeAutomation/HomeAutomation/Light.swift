@@ -11,31 +11,31 @@ import Foundation
 /// 照明
 class Light {
   /// 部屋
-  private let room: String
+  private let location: String
   
   /**
   イニシャライザ
   
-  - parameter room: 部屋
+  - parameter location: 部屋
   
   - returns: 照明
   */
-  init(room: String) {
-    self.room = room
+  init(location: String) {
+    self.location = location
   }
   
   /**
   照明を点けます
   */
   func on() {
-    print("\(self.room) 照明が点いています")
+    print("\(self.location) 照明が点いています")
   }
   
   /**
   照明を消します
   */
   func off() {
-    print("\(self.room) 照明が消えています")
+    print("\(self.location) 照明が消えています")
   }
 }
 
@@ -56,10 +56,17 @@ class LightOnCommand: Command {
   }
   
   /**
-  コマンドを実行します
+  照明を点けます
   */
   func execute() {
     self.light.on()
+  }
+  
+  /**
+  照明を消します
+  */
+  func undo() {
+    self.light.off()
   }
 }
 
@@ -84,5 +91,12 @@ class LightOffCommand: Command {
   */
   func execute() {
     self.light.off()
+  }
+  
+  /**
+  照明を点けます
+  */
+  func undo() {
+    self.light.on()
   }
 }

@@ -11,59 +11,59 @@ import Foundation
 /// ステレオ
 class Stereo {
   /// 部屋
-  private let room: String
+  private let location: String
   
   /**
   イニシャライザ
   
-  - parameter room: 部屋
+  - parameter location: 部屋
   
   - returns: ステレオ
   */
-  init(room: String) {
-    self.room = room
+  init(location: String) {
+    self.location = location
   }
   
   /**
   ステレオをつけます
   */
   func on() {
-    print("\(self.room) ステレオの電源が入っています")
+    print("\(self.location) ステレオの電源が入っています")
   }
   
   /**
   ステレオを消します
   */
   func off() {
-    print("\(self.room) ステレオの電源が切れています")
+    print("\(self.location) ステレオの電源が切れています")
   }
   
   /**
   CDを入れます
   */
   func setCd() {
-    print("\(self.room) ステレオがCD入力に設定されています")
+    print("\(self.location) ステレオがCD入力に設定されています")
   }
   
   /**
   DVDを入れます
   */
   func setDvd() {
-    print("\(self.room) ステレオがDVD入力に設定されています")
+    print("\(self.location) ステレオがDVD入力に設定されています")
   }
   
   /**
   ラジオに設定します
   */
   func setRadio() {
-    print("\(self.room) ステレオがラジオ入力に設定されています")
+    print("\(self.location) ステレオがラジオ入力に設定されています")
   }
   
   /**
   音量を設定します
   */
   func setVolume(volume: Int) {
-    print("\(self.room) ステレオのボリュームが\(volume)に設定されています")
+    print("\(self.location) ステレオのボリュームが\(volume)に設定されています")
   }
 }
 
@@ -83,11 +83,20 @@ class StereoOnWithCDCommand: Command {
     self.stereo = stereo
   }
   
-  
+  /**
+  ステレオでCDを再生します
+  */
   func execute() {
     self.stereo.on()
     self.stereo.setCd()
     self.stereo.setVolume(11)
+  }
+  
+  /**
+  ステレオの電源を切ります
+  */
+  func undo() {
+    self.stereo.off()
   }
 }
 
@@ -112,5 +121,14 @@ class StereoOffWithCDCommand: Command {
   */
   func execute() {
     self.stereo.off()
+  }
+  
+  /**
+  ステレオでCDを再生します
+  */
+  func undo() {
+    self.stereo.on()
+    self.stereo.setCd()
+    self.stereo.setVolume(11)
   }
 }

@@ -69,4 +69,11 @@ class GarageDoorOpenCommand: Command {
   func execute() {
     self.garageDoor.up()
   }
+  
+  /**
+  車庫のドアを閉じます
+  */
+  func undo() {
+    self.garageDoor.down()
+  }
 }

@@ -43,6 +43,8 @@ class RemoteControl {
   private var onCommands: [Command]
   /// off用のコマンド
   private var offCommands: [Command]
+  /// undo用のコマンド
+  private var undoCommand: Command
   
   /**
   イニシャライザ
@@ -54,6 +56,7 @@ class RemoteControl {
     
     self.onCommands = Array(count: 7, repeatedValue: noCommand)
     self.offCommands = Array(count: 7, repeatedValue: noCommand)
+    self.undoCommand = noCommand
   }
   
   /**
@@ -75,6 +78,7 @@ class RemoteControl {
   */
   func onButtonWasPushed(slot: Int) {
     self.onCommands[slot].execute()
+    self.undoCommand = onCommands[slot]
   }
   
   /**
@@ -84,6 +88,14 @@ class RemoteControl {
   */
   func offButtonWathPushed(slot: Int) {
     self.offCommands[slot].execute()
+    self.undoCommand = offCommands[slot]
+  }
+  
+  /**
+  undoボタン後されたときに呼び出されます
+  */
+  func undoButtonWasPushed() {
+    self.undoCommand.undo()
   }
   
   /**
@@ -93,9 +105,9 @@ class RemoteControl {
     var stringBuff: String = String()
     stringBuff = "\n----- リモコン -----\n"
     for i in 0...self.onCommands.count - 1 {
-      stringBuff += "[スロット \(String(i))] \(onCommands[i].dynamicType) \(offCommands[i].dynamicType)\n"
+      stringBuff += "[スロット \(String(i))] \(self.onCommands[i].dynamicType) \(self.offCommands[i].dynamicType)\n"
     }
-    
+    stringBuff += "[アンドゥ] \(self.undoCommand.dynamicType)\n"
     return stringBuff
   }
 }
