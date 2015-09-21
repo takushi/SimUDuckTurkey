@@ -17,6 +17,7 @@
 		1CD43F251BAFCFB800AC4C23 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD43F241BAFCFB800AC4C23 /* Macro.swift */; settings = {ASSET_TAGS = (); }; };
 		1CD43F271BAFD0D900AC4C23 /* TV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD43F261BAFD0D900AC4C23 /* TV.swift */; settings = {ASSET_TAGS = (); }; };
 		1CD43F291BAFD35100AC4C23 /* Hottub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD43F281BAFD35100AC4C23 /* Hottub.swift */; settings = {ASSET_TAGS = (); }; };
+		1CD43F2B1BAFEB1F00AC4C23 /* Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD43F2A1BAFEB1F00AC4C23 /* Disk.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +44,7 @@
 		1CD43F241BAFCFB800AC4C23 /* Macro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
 		1CD43F261BAFD0D900AC4C23 /* TV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TV.swift; sourceTree = "<group>"; };
 		1CD43F281BAFD35100AC4C23 /* Hottub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hottub.swift; sourceTree = "<group>"; };
+		1CD43F2A1BAFEB1F00AC4C23 /* Disk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disk.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				1C0A98481BAEBD2E00E7A136 /* Vendor */,
 				1C5CD97E1BAEAF9F003AD211 /* Command.swift */,
 				1C117F0F1BAEC00400B2633B /* RemoteControl.swift */,
+				1CD43F2A1BAFEB1F00AC4C23 /* Disk.swift */,
 				1C5CD9751BAEAF60003AD211 /* main.swift */,
 			);
 			path = HomeAutomation;
@@ -158,6 +161,7 @@
 				1CD43F271BAFD0D900AC4C23 /* TV.swift in Sources */,
 				1C117F121BAEC47600B2633B /* GarageDoor.swift in Sources */,
 				1C30EFEB1BAEFF8400467553 /* CeilingFan.swift in Sources */,
+				1CD43F2B1BAFEB1F00AC4C23 /* Disk.swift in Sources */,
 				1C5CD9761BAEAF60003AD211 /* main.swift in Sources */,
 				1C5CD97F1BAEAF9F003AD211 /* Command.swift in Sources */,
 				1CD43F291BAFD35100AC4C23 /* Hottub.swift in Sources */,

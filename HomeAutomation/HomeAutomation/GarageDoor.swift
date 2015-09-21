@@ -51,6 +51,8 @@ class GarageDoor {
 class GarageDoorOpenCommand: Command {
  /// 車庫のドア
   private let garageDoor: GarageDoor
+  /// ログを保存するディスク
+  private let disk: Disk
   
   /**
   イニシャライザ
@@ -59,8 +61,9 @@ class GarageDoorOpenCommand: Command {
   
   - returns: 車庫のドアを開けるコマンド
   */
-  init(garageDoor: GarageDoor) {
+  init(garageDoor: GarageDoor, disk: Disk) {
     self.garageDoor = garageDoor
+    self.disk = disk
   }
   
   /**
@@ -75,5 +78,20 @@ class GarageDoorOpenCommand: Command {
   */
   func undo() {
     self.garageDoor.down()
+    self.disk.remove()
+  }
+  
+  /**
+  ログにコマンドを保存します
+  */
+  func store() {
+    self.disk.store(self)
+  }
+  
+  /**
+  ログを実行します
+  */
+  func load() {
+    self.execute()
   }
 }

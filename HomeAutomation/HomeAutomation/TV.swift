@@ -78,6 +78,8 @@ class TVOnCommandWithDVD: Command {
   *  テレビ
   */
   private let tv: TV
+  /// ログを保存するディスク
+  private let disk: Disk
   
   /**
   イニシャライザ
@@ -86,8 +88,9 @@ class TVOnCommandWithDVD: Command {
   
   - returns: テレビをつけるコマンド
   */
-  init(tv: TV) {
+  init(tv: TV, disk: Disk) {
     self.tv = tv
+    self.disk = disk
   }
   
   /**
@@ -102,6 +105,21 @@ class TVOnCommandWithDVD: Command {
   */
   func undo() {
     self.tv.off()
+    self.disk.remove()
+  }
+  
+  /**
+  ログにコマンドを保存します
+  */
+  func store() {
+    self.disk.store(self)
+  }
+  
+  /**
+  ログを実行します
+  */
+  func load() {
+    self.execute()
   }
 }
 
@@ -111,6 +129,8 @@ class TVOffCommandWithDVD: Command {
   *  テレビ
   */
   private let tv: TV
+  /// ログを保存するディスク
+  private let disk: Disk
   
   /**
   イニシャライザ
@@ -119,8 +139,9 @@ class TVOffCommandWithDVD: Command {
   
   - returns: テレビを消すコマンド
   */
-  init(tv: TV) {
+  init(tv: TV, disk: Disk) {
     self.tv = tv
+    self.disk = disk
   }
   
   /**
@@ -135,5 +156,20 @@ class TVOffCommandWithDVD: Command {
   */
   func undo() {
     self.tv.on()
+    self.disk.remove()
+  }
+  
+  /**
+  ログにコマンドを保存します
+  */
+  func store() {
+    self.disk.store(self)
+  }
+  
+  /**
+  ログを実行します
+  */
+  func load() {
+    self.execute()
   }
 }

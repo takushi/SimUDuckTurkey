@@ -45,18 +45,21 @@ class RemoteControl {
   private var offCommands: [Command]
   /// undo用のコマンド
   private var undoCommand: Command
+  /// ログを保存するディスク
+  private var disk: Disk
   
   /**
   イニシャライザ
   
   - returns: リモコン
   */
-  init () {
+  init (disk: Disk) {
     let noCommand = NoCommand()
     
     self.onCommands = Array(count: 7, repeatedValue: noCommand)
     self.offCommands = Array(count: 7, repeatedValue: noCommand)
     self.undoCommand = noCommand
+    self.disk = disk
   }
   
   /**
@@ -77,6 +80,7 @@ class RemoteControl {
   - parameter slot: 押されたスロットの番号
   */
   func onButtonWasPushed(slot: Int) {
+    self.onCommands[slot].store()
     self.onCommands[slot].execute()
     self.undoCommand = onCommands[slot]
   }
@@ -87,15 +91,25 @@ class RemoteControl {
   - parameter slot: 押されたスロットの番号
   */
   func offButtonWathPushed(slot: Int) {
+    self.offCommands[slot].store()
     self.offCommands[slot].execute()
     self.undoCommand = offCommands[slot]
   }
   
   /**
-  undoボタン後されたときに呼び出されます
+  undoボタンが押されたときに呼び出されます
   */
-  func undoButtonWasPushed() {
+  func onUndoButtonWasPushed() {
     self.undoCommand.undo()
+  }
+  
+  /**
+  reloadボタンが押されたときに呼び出されます
+  */
+  func onReloadButtonWasPushed() {
+    while let command = self.disk.load() {
+      command.load()
+    }
   }
   
   /**

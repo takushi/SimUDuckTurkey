@@ -76,6 +76,8 @@ class CeilingFan {
 class CeilingFanHighCommand: Command {
   /// 天井の扇風機
   let ceilingFun: CeilingFan
+  /// ログを保存するディスク
+  private let disk: Disk
   /// 以前の強さ
   private var prevSpeed: Speed
   
@@ -86,8 +88,9 @@ class CeilingFanHighCommand: Command {
   
   - returns: 扇風機を「強」でつけるコマンド
   */
-  init(ceilingFun: CeilingFan) {
+  init(ceilingFun: CeilingFan, disk: Disk) {
     self.ceilingFun = ceilingFun
+    self.disk = disk
     self.prevSpeed = Speed.Off
   }
   
@@ -113,6 +116,21 @@ class CeilingFanHighCommand: Command {
     case .Off:
       self.ceilingFun.off()
     }
+    self.disk.remove()
+  }
+  
+  /**
+  ログにコマンドを保存します
+  */
+  func store() {
+    self.disk.store(self)
+  }
+  
+  /**
+  ログを実行します
+  */
+  func load() {
+    self.execute()
   }
 }
 
@@ -120,6 +138,8 @@ class CeilingFanHighCommand: Command {
 class CeilingFanMediumCommand: Command {
   /// 天井の扇風機
   let ceilingFun: CeilingFan
+  /// ログを保存するディスク
+  private let disk: Disk
   /// 以前の強さ
   private var prevSpeed: Speed
   
@@ -130,8 +150,9 @@ class CeilingFanMediumCommand: Command {
   
   - returns: 扇風機を「中」でつけるコマンド
   */
-  init(ceilingFun: CeilingFan) {
+  init(ceilingFun: CeilingFan, disk: Disk) {
     self.ceilingFun = ceilingFun
+    self.disk = disk
     self.prevSpeed = Speed.Off
   }
   
@@ -157,6 +178,21 @@ class CeilingFanMediumCommand: Command {
     case .Off:
       self.ceilingFun.off()
     }
+    self.disk.remove()
+  }
+  
+  /**
+  ログにコマンドを保存します
+  */
+  func store() {
+    self.disk.store(self)
+  }
+  
+  /**
+  ログを実行します
+  */
+  func load() {
+    self.execute()
   }
 }
 
@@ -164,6 +200,8 @@ class CeilingFanMediumCommand: Command {
 class CeilingFanOffCommand: Command {
   /// 天井の扇風機
   let ceilingFun: CeilingFan
+  /// ログを保存するディスク
+  private let disk: Disk
   /// 以前の強さ
   private var prevSpeed: Speed
   
@@ -174,8 +212,9 @@ class CeilingFanOffCommand: Command {
   
   - returns: 扇風機を止めるコマンド
   */
-  init(ceilingFun: CeilingFan) {
+  init(ceilingFun: CeilingFan, disk: Disk) {
     self.ceilingFun = ceilingFun
+    self.disk = disk
     self.prevSpeed = Speed.Off
   }
   
@@ -201,5 +240,20 @@ class CeilingFanOffCommand: Command {
     case .Off:
       self.ceilingFun.off()
     }
+    self.disk.remove()
+  }
+  
+  /**
+  ログにコマンドを保存します
+  */
+  func store() {
+    self.disk.store(self)
+  }
+  
+  /**
+  ログを実行します
+  */
+  func load() {
+    self.execute()
   }
 }

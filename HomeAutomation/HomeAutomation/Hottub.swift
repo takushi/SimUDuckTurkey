@@ -50,6 +50,8 @@ class Hottub {
 class HottubOnCommandWithJets: Command {
   /// お風呂
   let hottub: Hottub
+  /// ログを保存するディスク
+  private let disk: Disk
   
   /**
   イニシャライザ
@@ -58,8 +60,9 @@ class HottubOnCommandWithJets: Command {
   
   - returns: お風呂を沸かすコマンド
   */
-  init(hottub: Hottub) {
+  init(hottub: Hottub, disk: Disk) {
     self.hottub = hottub
+    self.disk = disk
   }
   
   /**
@@ -75,6 +78,21 @@ class HottubOnCommandWithJets: Command {
   */
   func undo() {
     self.hottub.off()
+    self.disk.remove()
+  }
+  
+  /**
+  ログにコマンドを保存します
+  */
+  func store() {
+    self.disk.store(self)
+  }
+  
+  /**
+  ログを実行します
+  */
+  func load() {
+    self.execute()
   }
 }
 
@@ -82,6 +100,8 @@ class HottubOnCommandWithJets: Command {
 class HottubOffCommand: Command {
   /// お風呂
   let hottub: Hottub
+  /// ログを保存するディスク
+  private let disk: Disk
   
   /**
   イニシャライザ
@@ -90,8 +110,9 @@ class HottubOffCommand: Command {
   
   - returns: お風呂を冷ますコマンド
   */
-  init(hottub: Hottub) {
+  init(hottub: Hottub, disk: Disk) {
     self.hottub = hottub
+    self.disk = disk
   }
   
   /**
@@ -106,5 +127,20 @@ class HottubOffCommand: Command {
   */
   func undo() {
     self.hottub.on()
+    self.disk.remove()
+  }
+  
+  /**
+  ログにコマンドを保存します
+  */
+  func store() {
+    self.disk.store(self)
+  }
+  
+  /**
+  ログを実行します
+  */
+  func load() {
+    self.execute()
   }
 }

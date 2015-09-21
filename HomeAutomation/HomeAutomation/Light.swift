@@ -43,6 +43,8 @@ class Light {
 class LightOnCommand: Command {
   /// 照明
   private let light: Light
+  /// ログを保存するディスク
+  private let disk: Disk
 
   /**
   イニシャライザ
@@ -51,8 +53,9 @@ class LightOnCommand: Command {
   
   - returns: 照明を点けるコマンド
   */
-  init(light: Light) {
+  init(light: Light, disk: Disk) {
     self.light = light
+    self.disk  = disk
   }
   
   /**
@@ -67,6 +70,21 @@ class LightOnCommand: Command {
   */
   func undo() {
     self.light.off()
+    self.disk.remove()
+  }
+  
+  /**
+  ログにコマンドを保存します
+  */
+  func store() {
+    self.disk.store(self)
+  }
+  
+  /**
+  ログを実行します
+  */
+  func load() {
+    self.execute()
   }
 }
 
@@ -74,6 +92,8 @@ class LightOnCommand: Command {
 class LightOffCommand: Command {
   /// 照明
   private let light: Light
+  /// ログを保存するディスク
+  private let disk: Disk
   
   /**
   イニシャライザ
@@ -82,8 +102,9 @@ class LightOffCommand: Command {
   
   - returns: 照明を点けるコマンド
   */
-  init(light: Light) {
+  init(light: Light, disk: Disk) {
     self.light = light
+    self.disk  = disk
   }
   
   /**
@@ -98,5 +119,20 @@ class LightOffCommand: Command {
   */
   func undo() {
     self.light.on()
+    self.disk.remove()
+  }
+  
+  /**
+  ログにコマンドを保存します
+  */
+  func store() {
+    self.disk.store(self)
+  }
+  
+  /**
+  ログを実行します
+  */
+  func load() {
+    self.execute()
   }
 }

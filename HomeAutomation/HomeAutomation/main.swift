@@ -9,33 +9,48 @@
 
 import Foundation
 
-let remote: RemoteControl = RemoteControl()
+let disk: Disk            = Disk()
+let remote: RemoteControl = RemoteControl(disk: disk)
 
-let light: Light = Light(location: "リビングルーム")
-let tv: TV = TV(location: "リビングルーム")
-let stereo: Stereo = Stereo(location: "リビングルーム")
-let hottub: Hottub = Hottub()
+let livingRoomLight: Light = Light(location: "リビングルーム")
+let kitchenLight: Light        = Light(location: "キッチン")
+let ceilingFan: CeilingFan     = CeilingFan(location: "リビングルーム")
+let garageDoor: GarageDoor     = GarageDoor()
+let stereo: Stereo             = Stereo(location: "リビングルーム")
 
-let lightOn: LightOnCommand = LightOnCommand(light: light)
-let stereoOn: StereoOnWithCDCommand = StereoOnWithCDCommand(stereo: stereo)
-let tvOn: TVOnCommandWithDVD = TVOnCommandWithDVD(tv: tv)
-let hottubOn: HottubOnCommandWithJets = HottubOnCommandWithJets(hottub: hottub)
-let lightOff: LightOffCommand = LightOffCommand(light: light)
-let stereoOff: StereoOffWithCDCommand = StereoOffWithCDCommand(stereo: stereo)
-let tvOff: TVOffCommandWithDVD = TVOffCommandWithDVD(tv: tv)
-let hottubOff: HottubOffCommand = HottubOffCommand(hottub: hottub)
+let livingRoomLightOn: LightOnCommand   = LightOnCommand(light: livingRoomLight, disk: disk)
+let livingRoomLightOff: LightOffCommand = LightOffCommand(light: livingRoomLight, disk: disk)
+let kitchenLightOn: LightOnCommand          = LightOnCommand(light: kitchenLight, disk: disk)
+let kitchenLightOff: LightOffCommand        = LightOffCommand(light: kitchenLight, disk: disk)
+let ceilingFanOn: CeilingFanHighCommand     = CeilingFanHighCommand(ceilingFun: ceilingFan, disk: disk)
+let ceilingFanOff: CeilingFanOffCommand     = CeilingFanOffCommand(ceilingFun: ceilingFan, disk: disk)
+let garageOpen:GarageDoorOpenCommand        = GarageDoorOpenCommand(garageDoor: garageDoor, disk: disk)
+let stereoOnWithCD                          = StereoOnWithCDCommand(stereo: stereo, disk: disk)
+let stereoOffWithCD                         = StereoOffWithCDCommand(stereo: stereo, disk: disk)
 
-let partyOn: [Command] = [lightOn, stereoOn, tvOn, hottubOn]
-let partyOff: [Command] = [lightOff, stereoOff, tvOff, hottubOff]
-
-let partyOnMacro: MacroCommand = MacroCommand(commands: partyOn)
-let partyOffMacro: MacroCommand = MacroCommand(commands: partyOff)
-
-remote.setCommand(0, onCommand: partyOnMacro, offCommand: partyOffMacro)
+remote.setCommand(0, onCommand: livingRoomLightOn, offCommand: livingRoomLightOff)
+remote.setCommand(1, onCommand: kitchenLightOn, offCommand: kitchenLightOff)
+remote.setCommand(2, onCommand: ceilingFanOn, offCommand: ceilingFanOff)
+remote.setCommand(3, onCommand: stereoOnWithCD, offCommand: stereoOffWithCD)
 
 print(remote.toString())
-tv.setInputChannel(Channel.DVD)
-print("----- マクロのOnを押す -----")
+
+print("----- リモコンを操作 -----")
 remote.onButtonWasPushed(0)
-print("----- マクロのOffを押す -----")
 remote.offButtonWathPushed(0)
+remote.onButtonWasPushed(1)
+remote.offButtonWathPushed(1)
+remote.onButtonWasPushed(2)
+remote.offButtonWathPushed(2)
+remote.onButtonWasPushed(3)
+remote.offButtonWathPushed(3)
+
+print(disk.toString())
+
+print("----- アンドゥボタン -----")
+remote.onUndoButtonWasPushed()
+
+print(disk.toString())
+
+print("----- リロードボタン -----")
+remote.onReloadButtonWasPushed()

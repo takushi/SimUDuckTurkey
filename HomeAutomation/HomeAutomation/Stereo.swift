@@ -71,6 +71,8 @@ class Stereo {
 class StereoOnWithCDCommand: Command {
   /// ステレオ
   private let stereo: Stereo
+  /// ログを保存するディスク
+  private let disk: Disk
   
   /**
   イニシャライザ
@@ -79,8 +81,9 @@ class StereoOnWithCDCommand: Command {
   
   - returns: ステレオでCDを再生するコマンド
   */
-  init(stereo: Stereo) {
+  init(stereo: Stereo, disk: Disk) {
     self.stereo = stereo
+    self.disk = disk
   }
   
   /**
@@ -97,6 +100,21 @@ class StereoOnWithCDCommand: Command {
   */
   func undo() {
     self.stereo.off()
+    self.disk.remove()
+  }
+  
+  /**
+  ログにコマンドを保存します
+  */
+  func store() {
+    self.disk.store(self)
+  }
+  
+  /**
+  ログを実行します
+  */
+  func load() {
+    self.execute()
   }
 }
 
@@ -104,6 +122,8 @@ class StereoOnWithCDCommand: Command {
 class StereoOffWithCDCommand: Command {
   /// ステレオ
   private let stereo: Stereo
+  /// ログを保存するディスク
+  private let disk: Disk
   
   /**
   イニシャライザ
@@ -112,8 +132,9 @@ class StereoOffWithCDCommand: Command {
   
   - returns: ステレオでCDを再生するコマンド
   */
-  init(stereo: Stereo) {
+  init(stereo: Stereo, disk: Disk) {
     self.stereo = stereo
+    self.disk = disk
   }
   
   /**
@@ -130,5 +151,20 @@ class StereoOffWithCDCommand: Command {
     self.stereo.on()
     self.stereo.setCd()
     self.stereo.setVolume(11)
+    self.disk.remove()
+  }
+  
+  /**
+  ログにコマンドを保存します
+  */
+  func store() {
+    self.disk.store(self)
+  }
+  
+  /**
+  ログを実行します
+  */
+  func load() {
+    self.execute()
   }
 }

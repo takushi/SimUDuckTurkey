@@ -22,6 +22,16 @@ protocol Command {
   最後のコマンドを取り消します
   */
   func undo()
+  
+  /**
+  コマンドをディスクに保存します
+  */
+  func store()
+  
+  /**
+  コマンドをリロードして実行します
+  */
+  func load()
 }
 
 /// 初期のコマンド
@@ -32,5 +42,13 @@ class NoCommand: Command {
 
   func undo() {
     print("コマンドが設定されていません")
+  }
+  
+  func store() {
+    //ディスクに保存する必要がありません
+  }
+  
+  func load() {
+    //リロードする必要がありません
   }
 }
